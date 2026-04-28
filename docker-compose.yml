@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   ghostfolio:
-    image: 170934847890.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
+    image: ${ECR_REGISTRY}/myapp:latest
     ports:
       - "3333:3333"
     env_file:

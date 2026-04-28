@@ -19,7 +19,7 @@ The `Dockerfile` is part of the original Ghostfolio project. Everything else —
 ## Pipeline Overview
 
 ```
-Manual trigger (workflow_dispatch)
+[Run workflow] (manual trigger)
         │
         ▼
 ┌─────────────────────┐
@@ -40,20 +40,10 @@ Manual trigger (workflow_dispatch)
 └─────────────────────┘
 ```
 
-## Triggering the Pipeline
-
-The pipeline runs **manually only** via `workflow_dispatch`:
-
-1. Go to **Actions** tab in this repository
-2. Select **Build and Deploy**
-3. Click **Run workflow**
-4. Choose target environment (`production` / `staging`)
-5. Click **Run workflow**
-
 ## Workflows
 
 ### `deploy.yml` — Build and Deploy
-Manually triggered via GitHub Actions UI.
+Triggered **manually** via GitHub Actions → Run workflow.
 
 1. **Build** — multi-stage Docker build using the existing [`Dockerfile`](./Dockerfile) from Ghostfolio
 2. **Tag** — image tagged with short commit SHA + `latest`
@@ -93,3 +83,4 @@ See [`.env.example`](./.env.example) for all required variables including:
 - `REDIS_URL` — Redis connection string
 - `JWT_SECRET_KEY`, `ACCESS_TOKEN_SALT` — app secrets
 - `AWS_REGION`, `AWS_LOG_GROUP_APP` — CloudWatch logging config
+- `ECR_REGISTRY` — your ECR registry URL
