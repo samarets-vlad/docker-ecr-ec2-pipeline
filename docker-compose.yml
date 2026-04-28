@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  ghostfolio:
+    image: 170934847890.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
+    ports:
+      - "3333:3333"
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      NODE_ENV: ${NODE_ENV}
+      ACCESS_TOKEN_SALT: ${ACCESS_TOKEN_SALT}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+      REDIS_URL: ${REDIS_URL}
+    restart: always
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_REGION}
+        awslogs-group: ${AWS_LOG_GROUP_APP}
+        awslogs-create-group: "true"
+        awslogs-stream: ghostfolio
