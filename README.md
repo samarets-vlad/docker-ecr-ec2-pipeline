@@ -81,6 +81,19 @@ App available at `http://localhost:3333`
 See [`.env.example`](./.env.example) for all required variables including:
 - `DATABASE_URL` — PostgreSQL connection string
 - `REDIS_URL` — Redis connection string
-- `JWT_SECRET_KEY`, `ACCESS_TOKEN_SALT` — app secrets
+- `JWT_SECRET_KEY`, `ACCESS_TOKEN_SALT` — app secrets (use random strings in production)
 - `AWS_REGION`, `AWS_LOG_GROUP_APP` — CloudWatch logging config
 - `ECR_REGISTRY` — your ECR registry URL
+
+---
+
+## 🔗 Part of the DevOps Portfolio Series
+
+| # | Repository | Stack |
+|---|---|---|
+| 1 | [aws-terraform-infra](https://github.com/samarets-vlad/aws-terraform-infra) | Terraform · AWS · VPC · ALB · EC2 · RDS · S3 |
+| 2 | [ansible-server-setup](https://github.com/samarets-vlad/ansible-server-setup) | Ansible · Nginx · Docker · Linux · TLS |
+| 3 | 👉 **[docker-ecr-ec2-pipeline](https://github.com/samarets-vlad/docker-ecr-ec2-pipeline)** | GitHub Actions · Docker · ECR · EC2 |
+| 4 | [monitoring-stack](https://github.com/samarets-vlad/monitoring-stack) | Prometheus · Grafana · Alertmanager · Ansible |
+| 5 | [k8s-helm-app](https://github.com/samarets-vlad/k8s-helm-app) | k3s · Helm · Traefik · cert-manager · MySQL |
+| 6 | [serverless-aws-pipeline](https://github.com/samarets-vlad/serverless-aws-pipeline) | Terraform · Lambda · API GW · S3 · CloudFront |
